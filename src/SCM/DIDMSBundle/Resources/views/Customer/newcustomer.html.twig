@@ -1,0 +1,70 @@
+{% extends 'SCMDIDMSBundle::layout.html.twig' %}
+{% block content_header_more %}
+   <a href="{{ path('_welcome') }}">My Info</a> | <a href="{{ path('_welcome') }}">Logout</a> 
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('_customer_create') }}">
+ <h1>New Customer</h1>
+ <table border="0" style="width:100%">      
+<tr>
+<td align="center">
+ <table border="0" class="rounded-table">      
+    <tr align="left">
+            <td width="25%"  style="text-algin:left">
+                Name</td>
+            <td>
+                <input id="name" name="name" type="text" /></td>
+        </tr>
+        <tr align="left">
+            <td>
+                Email</td>
+            <td>
+                <input id="email" name="email" type="text" /></td>
+        </tr>
+         <tr align="left">
+            <td>
+                Phone</td>
+            <td>
+                <input id="phone" name="phone" type="text" /></td>
+        </tr>
+         <tr align="left">
+            <td>
+                SMS Enabled?</td>
+            <td>
+                <input id="sms" name="sms" type="checkbox" /></td>
+        </tr>
+        <tr align="left">
+            <td>
+                Forwarding To</td>
+            <td>
+                <input id="forward" name="forward" type="text" /></td>
+        </tr>
+        <tr align="left">
+            <td>
+                Order ID</td>
+            <td>
+                <input id="orderid" name="orderid" type="text" /></td>
+        </tr>
+        <tr align="left">
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+         <tr align="left">
+            <td>
+                Comment</td>
+            <td>
+                <textarea id="comment" cols="50" name="comment" rows="4"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="submit"  class="symfony-button-green"/></td>
+        </tr>  
+ </table>
+</td>
+</tr>
+</table>
+</form>
+{% endblock %}

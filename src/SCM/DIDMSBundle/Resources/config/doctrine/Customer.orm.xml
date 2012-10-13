@@ -1,0 +1,19 @@
+<!-- src/SCM/SCMDIDMSBundle/Resources/config/doctrine/Customer.orm.xml -->
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                    http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="SCM\DIDMSBundle\Entity\Customer" table="customer">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="name" column="name" type="string" length="100" />
+        <field name="email" column="email" type="string" length="100" />
+        <field name="phone" column="phone" type="string" length="25" />
+        <field name="smsenabled" column="smsenabled" type="boolean" />
+        <field name="forwardingto" column="forwardingto" type="string" length="25" />
+        <field name="orderid" column="orderid" type="string" length="25" />
+        <field name="comment" column="comment" type="text" />
+    </entity>
+</doctrine-mapping>

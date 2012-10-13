@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}SPM Information Solutions | trixbox Pro&reg; India | vigilfax | fax server | asterisk{% endblock %}</title>
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/didms/css/demo.css') }}" />    
+    </head>
+    <body>
+        <div id="symfony-wrapper">
+            <div id="symfony-header">
+                <a href="http://www.spminfosol.com">
+                    <img src="{{ asset('bundles/didms/images/logo.gif') }}" alt="SCM logo" style="width:250px;height:75px" />
+                </a>
+                <form id="symfony-search" method="GET" action="http://www.spminfosol.com/search">
+                    <label for="symfony-search-field"><span>Search on SPM Website</span></label>
+                    <input name="q" id="symfony-search-field" type="search" placeholder="Search on SPM website" class="medium_txt" />
+                    <input type="submit" class="symfony-button-grey" value="OK" />
+                </form>
+            </div>            
+
+            {% block content_header %}
+                <ul id="menu">
+                    {% block content_header_more %}
+              
+                    {% endblock %}
+                </ul>
+                <div id="navigationbar1">
+                    {% block navigationbar_more %}
+     
+                    {% endblock %}
+                </div>    
+                <div style="clear: both"></div>
+            {% endblock %}
+
+    
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+          <table class="flash-message symfony-content" style="width:100%">
+                <tr id="tblMessage" runat="server">
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td style="width: 25px; vertical-align: middle; text-align: center">
+                                <img ID="imgMessage"  src="/didms/web/bundles/didms/images/{{ app.session.flashbag.get('notice_type')[0] }}.png"  Height="28px" Width="28px" />
+                            </td>
+                            <td style="vertical-align: middle">
+                                {{ flashMessage }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>         
+            </table>
+            {% endfor %}
+        
+            <div class="symfony-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            {% if code is defined %}
+                <h2>Code behind this page</h2>
+                <div class="symfony-content">{{ code|raw }}</div>
+            {% endif %}
+        </div>
+    </body>
+</html>

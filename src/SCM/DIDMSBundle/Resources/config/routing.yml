@@ -1,0 +1,43 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: SCMDIDMSBundle:Default:index }
+    
+scmdidms_homepage:
+    pattern:  /
+    defaults: { _controller: SCMDIDMSBundle:Default:index }
+
+scmdidms_login:
+    pattern:  /login
+    defaults: { _controller: SCMDIDMSBundle:Default:login }
+
+scmdidms_dashboard:
+    pattern:  /
+    defaults: { _controller: SCMDIDMSBundle:Dashboard:index }
+    
+_customers:
+    pattern:  /customer
+    defaults: { _controller: SCMDIDMSBundle:Customer:index }    
+    
+_customer_add:
+    pattern:  /newcustomer
+    defaults: { _controller: SCMDIDMSBundle:Customer:add }        
+    
+_customer_create:
+    pattern:  /createcustomer
+    defaults: { _controller: SCMDIDMSBundle:Customer:create }      
+    
+_customer_delete:
+    pattern:  /deletecustomer/{Id}
+    defaults: { _controller: SCMDIDMSBundle:Customer:delete }          
+    
+_customer_edit:
+    pattern:  /editcustomer/{id}
+    defaults: { _controller: SCMDIDMSBundle:Customer:edit }    
+    
+_customer_update:
+    pattern:  /updatecustomer/{id}
+    defaults: { _controller: SCMDIDMSBundle:Customer:update }   
+    
+_customer_search:
+    pattern:  /searchcustomer
+    defaults: { _controller: SCMDIDMSBundle:Customer:search }     

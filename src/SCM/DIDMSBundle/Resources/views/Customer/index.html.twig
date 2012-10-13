@@ -1,0 +1,62 @@
+{% extends 'SCMDIDMSBundle::layout.html.twig' %}
+{% block content_header_more %}
+   <a href="{{ path('_welcome') }}">My Info</a> | <a href="{{ path('_welcome') }}">Logout</a> 
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('_customer_search') }}">
+ <h1>Customers</h1>
+ <table border="0" class="rounded-table">
+        <tr>
+           <td colspan="6" >
+                 <label for="symfony-search-field"><span>Customer Name</span></label>
+                    <input name="searchvalue" id="symfony-search-field" type="search" placeholder="Customer Name" class="medium_txt" />
+                    <input type="submit" class="symfony-button-grey" value="SEARCH" />
+            </td>
+            <td colspan="3" style="text-align:right">
+                <a href="{{ path('_customer_add') }}">ADD NEW CUSTOMER</a>
+            </td>
+        </tr>
+        <tr class="table-header">
+            <td width="5%">
+                Id</td>
+            <td width="25%">
+                Name</td>
+            <td width="25%">
+                Email</td>
+            <td width="10%">
+                Phone</td>
+            <td width="5%">
+                SMS</td>
+            <td width="10%">
+                Forward To</td>
+            <td width="10%">
+                Order ID</td>     
+            <td width="5%">
+                Edit</td>
+            <td width="5%">
+                Delete</td>
+        </tr>
+  {% for customer in customers %}
+        <tr>
+            <td>
+                {{customer.Id }}</td>
+            <td>
+                {{ customer.Name }}</td>
+            <td>
+                {{ customer.Email }}</td>
+            <td>
+                {{ customer.Phone }}</td>
+            <td>
+                {{ customer.SmsEnabled }}</td>
+            <td>
+                {{ customer.ForwardingTo }}</td>
+            <td>
+                {{ customer.OrderID }}</td>           
+            <td><a href="{{ path('_customer_edit', {'id':customer.Id }) }}">Edit</a></td>
+            <td><a href="{{ path('_customer_delete', {'Id':customer.Id }) }}">Delete</a></td>
+        </tr>
+ {% endfor %}
+ </table>
+</form>
+{% endblock %}
